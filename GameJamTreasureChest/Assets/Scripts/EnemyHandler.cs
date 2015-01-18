@@ -10,6 +10,7 @@ public class EnemyHandler : MonoBehaviour {
 	private bool moving = false;
 	private bool flipped = false;
 	public StoppableCoroutine s;
+	public bool still = false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,10 @@ public class EnemyHandler : MonoBehaviour {
 		if(MovementHandler.instance.chestMoving) {
 			CheckForPlayerMovement();
 		}
+	}
+	
+	public void SetStill(bool _still){
+		still = _still;
 	}
 	
 	public void ShiftPositionMarkers(Transform shiftPos){
@@ -61,7 +66,7 @@ public class EnemyHandler : MonoBehaviour {
 			}
 			
 			s = new StoppableCoroutine(MovementHandler.instance.MoveDir(direction, transform));
-			yield return StartCoroutine(s);
+			if(!still)yield return StartCoroutine(s);
 			
 			if(flipped) {
 				transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
@@ -73,6 +78,7 @@ public class EnemyHandler : MonoBehaviour {
 		
 		lastPause = Time.time;
 		moving = false;
+		yield return new WaitForSeconds(0.001f);
 	}
 	
 	void CheckForPlayerMovement(){
