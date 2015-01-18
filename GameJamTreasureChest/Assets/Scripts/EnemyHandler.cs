@@ -86,8 +86,12 @@ public class EnemyHandler : MonoBehaviour {
 		if(hit.collider != null){
 			if(hit.collider.gameObject.tag == "Player"){
 				Debug.Log("spotted!");
-				//Application.LoadLevel("GameOver");
+				RelocateGoalPos();
 			}
 		}
+	}
+	
+	void RelocateGoalPos(){
+		//find good place for pos2
 	}
 }

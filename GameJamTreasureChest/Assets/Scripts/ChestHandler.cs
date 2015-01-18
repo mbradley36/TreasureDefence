@@ -5,6 +5,7 @@ public class ChestHandler : MonoBehaviour {
 	public Animator animator;
 	public float coolDownMax;
 	private float coolDown;
+	private ArrayList capturedItems;
 
 	// Use this for initialization
 	void Start () {
@@ -60,10 +61,12 @@ public class ChestHandler : MonoBehaviour {
 			eH.s.Stop();
 		}else if(c.gameObject.tag == "Capturable"){
 			StartCoroutine(Capture(c.gameObject));
+			Debug.Log(capturedItems);
 		}
 	}
 	
 	IEnumerator Capture(GameObject g){
+		capturedItems.Add(g);
 		animator.SetBool("jump", true);
 		yield return new WaitForSeconds(0.25f);
 		g.transform.renderer.enabled = false;
