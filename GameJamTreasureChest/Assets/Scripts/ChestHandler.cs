@@ -5,7 +5,7 @@ public class ChestHandler : MonoBehaviour {
 	public Animator animator;
 	public float coolDownMax;
 	private float coolDown;
-	private ArrayList capturedItems;
+	private ArrayList capturedItems = new ArrayList();
 
 	// Use this for initialization
 	void Start () {
@@ -55,13 +55,12 @@ public class ChestHandler : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D c){
 		Debug.Log("collided with " + c.gameObject.name);
-		if(!MovementHandler.instance.chestMoving){
+		if(!MovementHandler.instance.chestMoving && c.gameObject.GetComponent<EnemyHandler>()){
 			EnemyHandler eH = c.gameObject.GetComponent<EnemyHandler>();
 			eH.ShiftPositionMarkers(transform);
 			eH.s.Stop();
 		}else if(c.gameObject.tag == "Capturable"){
 			StartCoroutine(Capture(c.gameObject));
-			Debug.Log(capturedItems);
 		}
 	}
 	
