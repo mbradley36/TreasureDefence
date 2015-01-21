@@ -28,33 +28,33 @@ public class MovementHandler : MonoBehaviour {
 		switch(direction){
 			case dir.left:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos = t.position.x - 1;
+				float movedPos = t.position.x - 0.5f;
 				while(t.position.x > movedPos){
-					t.position = new Vector2(t.position.x - 0.25f, t.position.y);
+					t.position = new Vector2(t.position.x - 0.15f, t.position.y);
 					yield return new WaitForSeconds(0.1f);
 				}
 				break;
 			case dir.right:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos2 = t.position.x + 1;
+				float movedPos2 = t.position.x + 0.5f;
 				while(t.position.x < movedPos2){
-					t.position = new Vector2(t.position.x + 0.25f, t.position.y);
+					t.position = new Vector2(t.position.x + 0.15f, t.position.y);
 					yield return new WaitForSeconds(0.1f);
 				}
 				break;
 			case dir.up:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos3 = t.position.y + 1;
+				float movedPos3 = t.position.y + 0.5f;
 				while(t.position.y < movedPos3){
-					t.position = new Vector2(t.position.x, t.position.y + 0.25f);
+					t.position = new Vector2(t.position.x, t.position.y + 0.15f);
 					yield return new WaitForSeconds(0.1f);
 				}
 				break;
 			case dir.down:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos4 = t.position.y - 1;
+				float movedPos4 = t.position.y - 0.5f;
 				while(t.position.y > movedPos4){
-					t.position = new Vector2(t.position.x, t.position.y - 0.25f);
+					t.position = new Vector2(t.position.x, t.position.y - 0.15f);
 					yield return new WaitForSeconds(0.1f);
 				}
 				break;
