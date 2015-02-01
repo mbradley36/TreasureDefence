@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class HeroHandler : MonoBehaviour {
 	StoppableCoroutine move;
 	StoppableCoroutine move2;
+	int timesMoved = 0;
 	List<float> distances = new List<float>();
 	Dictionary<dir, Vector2> dirVector = new Dictionary<dir, Vector2>();
 	bool canMove = true;
@@ -61,8 +62,16 @@ public class HeroHandler : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, this.transform.position);
-			if(distance > 2f) StartCoroutine(movePattern(d));
-			else {
+			if(distance > 2f) {
+				timesMoved++;
+				if(timesMoved > 4) {
+					timesMoved = 0;
+					move = new StoppableCoroutine(moveSwitch(d));
+					StartCoroutine(move);
+				} else {
+					StartCoroutine(movePattern(d));	
+				}
+			} else {
 				move = new StoppableCoroutine(moveSwitch(d));
 				StartCoroutine(move);
 			}
@@ -120,5 +129,10 @@ public class HeroHandler : MonoBehaviour {
 			Debug.Log("should move " + newd);
 			MoveHero(newd);
 		}
+	}
+	
+	void OnCollisionEnter2D(Collision c){
+		Debug.Log("stopped movement");
+		StopCoroutine(move2);
 	}
 }
