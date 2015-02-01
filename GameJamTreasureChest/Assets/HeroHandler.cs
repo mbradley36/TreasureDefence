@@ -7,19 +7,14 @@ public class HeroHandler : MonoBehaviour {
 	StoppableCoroutine move2;
 	int timesMoved = 0;
 	List<float> distances = new List<float>();
-	Dictionary<dir, Vector2> dirVector = new Dictionary<dir, Vector2>();
 	bool canMove = true;
 
 	// Use this for initialization
 	void Start () {
 		move2 = new StoppableCoroutine(MovementHandler.instance.MoveDir(dir.up, this.transform));
-		Debug.Log("hero");
+		//Debug.Log("hero");
 		move = new StoppableCoroutine(movePattern());
 		StartCoroutine(move);
-		dirVector.Add (dir.left, new Vector2(-1,0));
-		dirVector.Add (dir.right, new Vector2(1,0));
-		dirVector.Add (dir.up, new Vector2(0,1));
-		dirVector.Add (dir.down, new Vector2(0,-1));
 	}
 	
 	// Update is called once per frame
@@ -40,7 +35,7 @@ public class HeroHandler : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, this.transform.position);
-			Debug.Log(distance + " dist " + hit.collider.gameObject.name);
+			//Debug.Log(distance + " dist " + hit.collider.gameObject.name);
 			if(hit.distance > 2f) {
 				distances.Add(distance);
 				return true;
@@ -54,11 +49,11 @@ public class HeroHandler : MonoBehaviour {
 		//StopCoroutine(move2);
 		move2 = new StoppableCoroutine(MovementHandler.instance.MoveDir(d, this.transform));
 		StartCoroutine(move2);
-		RecheckDist(dirVector[d], d);
+		RecheckDist(MovementHandler.instance.dirVector[d], d);
 	}
 	
 	public void RecheckDist(Vector2 v, dir d){
-		Debug.Log("to check: " + v);
+		//Debug.Log("to check: " + v);
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, this.transform.position);
@@ -93,7 +88,7 @@ public class HeroHandler : MonoBehaviour {
 	IEnumerator movePattern(){
 		yield return new WaitForSeconds(1f);
 		dir d = DecideDirection(FindClearDirections());
-		Debug.Log("should move " + d);
+		//Debug.Log("should move " + d);
 		MoveHero(d);
 	}
 	
@@ -106,7 +101,7 @@ public class HeroHandler : MonoBehaviour {
 		//if we've moved l/r, try up/down (to keep char from going back and forth)
 		//if there isn't an up/down path available, continue as normal
 		bool switchedPath = false;
-		Vector2 v = dirVector[d];
+		Vector2 v = MovementHandler.instance.dirVector[d];
 		distances = new List<float>();
 		List<dir> movable = new List<dir>();
 		
@@ -126,13 +121,13 @@ public class HeroHandler : MonoBehaviour {
 		} else {
 			yield return new WaitForSeconds(1f);
 			dir newd = DecideDirection(movable);
-			Debug.Log("should move " + newd);
+			//Debug.Log("should move " + newd);
 			MoveHero(newd);
 		}
 	}
 	
 	void OnCollisionEnter2D(Collision c){
-		Debug.Log("stopped movement");
+		//Debug.Log("stopped movement");
 		StopCoroutine(move2);
 	}
 }

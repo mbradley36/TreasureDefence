@@ -1040,6 +1040,10 @@ Prefab:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 95b30412a8e3b284ca0320f87fdaee4b, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95b30412a8e3b284ca0320f87fdaee4b, type: 2}
   m_RootGameObject: {fileID: 1779175271}
@@ -2297,7 +2301,7 @@ GameObject:
   - 114: {fileID: 1564894110}
   m_Layer: 2
   m_Name: Hero
-  m_TagString: Capturable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
