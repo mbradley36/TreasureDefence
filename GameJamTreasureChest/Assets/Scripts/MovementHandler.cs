@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public enum dir{ left, right, up, down }
 
@@ -8,7 +9,7 @@ public class MovementHandler : MonoBehaviour {
 	public static MovementHandler instance { get; private set; }
 	public bool coroutineRunning = false;
 	public bool chestMoving = false;
-	
+		
 	void Awake() {
 		instance = this;
 	}
