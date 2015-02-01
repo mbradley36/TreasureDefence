@@ -63,7 +63,7 @@ public class HeroHandler : MonoBehaviour {
 			float distance = Vector2.Distance(hit.point, this.transform.position);
 			if(distance > 2f) StartCoroutine(movePattern(d));
 			else {
-				move = new StoppableCoroutine(movePattern());
+				move = new StoppableCoroutine(moveSwitch(d));
 				StartCoroutine(move);
 			}
 		}
@@ -91,5 +91,34 @@ public class HeroHandler : MonoBehaviour {
 	IEnumerator movePattern(dir d){
 		yield return new WaitForSeconds(1f);
 		MoveHero(d);
+	}
+	
+	IEnumerator moveSwitch(dir d){
+		//if we've moved l/r, try up/down (to keep char from going back and forth)
+		//if there isn't an up/down path available, continue as normal
+		bool switchedPath = false;
+		Vector2 v = dirVector[d];
+		distances = new List<float>();
+		List<dir> movable = new List<dir>();
+		
+		if(v.x == 0) {
+			if(CheckDir(new Vector2(1, 0))) movable.Add (dir.left);
+			if(CheckDir(new Vector2(-1, 0))) movable.Add (dir.right);
+		} else if (v.y == 0){
+			if(CheckDir(new Vector2(0, 1))) movable.Add (dir.up);
+			if(CheckDir(new Vector2(0, -1))) movable.Add (dir.down);
+		}
+		
+		if(movable.Count > 0) switchedPath = true;
+		
+		if(!switchedPath) {
+			yield return 0;
+			StartCoroutine(movePattern());
+		} else {
+			yield return new WaitForSeconds(1f);
+			dir newd = DecideDirection(movable);
+			Debug.Log("should move " + newd);
+			MoveHero(newd);
+		}
 	}
 }
