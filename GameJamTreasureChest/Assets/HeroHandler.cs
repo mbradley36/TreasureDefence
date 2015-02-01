@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HeroHandler : MonoBehaviour {
-	StoppableCoroutine move, move2;
+	StoppableCoroutine move;
+	StoppableCoroutine move2;
 	List<float> distances = new List<float>();
 	Dictionary<dir, Vector2> dirVector = new Dictionary<dir, Vector2>();
+	bool canMove = true;
 
 	// Use this for initialization
 	void Start () {
+		move2 = new StoppableCoroutine(MovementHandler.instance.MoveDir(dir.up, this.transform));
 		Debug.Log("hero");
 		move = new StoppableCoroutine(movePattern());
 		StartCoroutine(move);
@@ -47,6 +50,7 @@ public class HeroHandler : MonoBehaviour {
 	}
 	
 	public void MoveHero(dir d){
+		//StopCoroutine(move2);
 		move2 = new StoppableCoroutine(MovementHandler.instance.MoveDir(d, this.transform));
 		StartCoroutine(move2);
 		RecheckDist(dirVector[d], d);
@@ -57,7 +61,7 @@ public class HeroHandler : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, this.transform.position);
-			if(distance > 2f) MoveHero(d);
+			if(distance > 2f) StartCoroutine(movePattern(d));
 			else {
 				move = new StoppableCoroutine(movePattern());
 				StartCoroutine(move);
@@ -78,9 +82,14 @@ public class HeroHandler : MonoBehaviour {
 	}
 	
 	IEnumerator movePattern(){
-		yield return new WaitForSeconds(0.01f);
+		yield return new WaitForSeconds(1f);
 		dir d = DecideDirection(FindClearDirections());
 		Debug.Log("should move " + d);
+		MoveHero(d);
+	}
+	
+	IEnumerator movePattern(dir d){
+		yield return new WaitForSeconds(1f);
 		MoveHero(d);
 	}
 }
