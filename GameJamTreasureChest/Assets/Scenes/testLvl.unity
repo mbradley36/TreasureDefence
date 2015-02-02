@@ -265,7 +265,7 @@ GameObject:
   - 95: {fileID: 251678962}
   - 61: {fileID: 251678964}
   - 50: {fileID: 251678965}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: tresureChest_0
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1341,6 +1341,10 @@ Prefab:
       propertyPath: m_FixedAngle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
   m_RootGameObject: {fileID: 251678959}
@@ -2269,7 +2273,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1564894108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.350910008, y: 2.87750006, z: 0}
+  m_LocalPosition: {x: -.350910008, y: 2.76329994, z: 0}
   m_LocalScale: {x: 2.17373753, y: 2.17373848, z: 2.17373848}
   m_Children: []
   m_Father: {fileID: 1779175272}
@@ -2281,7 +2285,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1564894108}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab5478783c2ceab4398879f3db5ea432, type: 3}
   m_Name: 

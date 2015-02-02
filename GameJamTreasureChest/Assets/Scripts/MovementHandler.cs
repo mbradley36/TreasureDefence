@@ -102,9 +102,10 @@ public class MovementHandler : MonoBehaviour {
 	
 	public float CheckDir(Transform t, Vector2 v){
 		RaycastHit2D hit = Physics2D.Raycast(t.position, v);
+		Debug.DrawRay(t.position, v, Color.red);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, t.position);
-			//Debug.Log(distance + " for " + t.gameObject.name + " moving " +v);
+			if(t.gameObject.name == "tresureChest_0")Debug.LogWarning(distance + " for " + t.gameObject.name + " moving " +v + " hitting " + hit.collider.gameObject.name);
 			return distance;
 		}
 		return 0f;

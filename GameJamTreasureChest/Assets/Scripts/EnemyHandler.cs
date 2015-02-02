@@ -94,4 +94,11 @@ public class EnemyHandler : MonoBehaviour {
 	void RelocateGoalPos(){
 		//find good place for pos2
 	}
+
+	/*void OnCollisionEnter2D(Collision2D c){
+		Debug.Log("stopped movement " + c.gameObject.name);
+		StopCoroutine(s);
+		s = new StoppableCoroutine(MovementHandler.instance.MoveDir(direction, transform));
+		StartCoroutine(s);
+	}*/
 }

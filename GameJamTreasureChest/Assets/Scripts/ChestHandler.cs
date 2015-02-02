@@ -6,6 +6,7 @@ public class ChestHandler : MonoBehaviour {
 	public float coolDownMax;
 	private float coolDown;
 	private ArrayList capturedItems = new ArrayList();
+	//private StoppableCoroutine s;
 
 	// Use this for initialization
 	void Start () {
@@ -61,6 +62,9 @@ public class ChestHandler : MonoBehaviour {
 			eH.s.Stop();
 		}else if(c.gameObject.tag == "Capturable"){
 			StartCoroutine(Capture(c.gameObject));
+		} else {
+			Debug.LogWarning("stopped movement " + c.gameObject.name);
+			//StopCoroutine(s);
 		}
 	}
 	
