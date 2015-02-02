@@ -77,15 +77,15 @@ public class HeroHandler : MonoBehaviour {
 			Debug.Log("saw " + hit.collider.gameObject.name);
 			if(Mathf.Abs(transform.parent.position.x - player.transform.position.x)<1.0f){
 				if(currentDir == dir.down){
-					if(player.transform.position.y > hit.collider.gameObject.transform.position.y &&
-						player.transform.position.y < transform.position.y){
+					if(player.transform.position.y < hit.collider.gameObject.transform.position.y &&
+						player.transform.position.y > transform.position.y){
 						Debug.Log("spotted by hero!");
 						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
 						StartCoroutine(s);
 					}
 				} else {
-					if(player.transform.position.y < hit.collider.gameObject.transform.position.y &&
-						player.transform.position.y > transform.position.y){
+					if(player.transform.position.y > hit.collider.gameObject.transform.position.y &&
+						player.transform.position.y < transform.position.y){
 						Debug.Log("spotted by hero!");
 						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
 						StartCoroutine(s);
