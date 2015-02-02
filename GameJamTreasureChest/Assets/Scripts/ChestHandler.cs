@@ -62,6 +62,8 @@ public class ChestHandler : MonoBehaviour {
 			eH.s.Stop();
 		}else if(c.gameObject.tag == "Capturable"){
 			StartCoroutine(Capture(c.gameObject));
+		} else if(c.gameObject.name == "Door") {
+			Application.LoadLevel("GameOver");
 		}
 	}
 	

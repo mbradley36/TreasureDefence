@@ -13,6 +13,7 @@ public class MovementHandler : MonoBehaviour {
 	float minDist;
 	public float moveAmt = 0.25f; 
 	public float moveIncrement = 0.25f;
+	public GameObject alert;
 		
 	void Awake() {
 		instance = this;
@@ -85,12 +86,12 @@ public class MovementHandler : MonoBehaviour {
 				}
 				break;
 		}
-		
+
 		if(t.gameObject.name == "Hero") {
-			Debug.Log("finished");
+			//Debug.Log("finished");
 			HeroHandler.instance.needToMove = true;
 		}
-		Debug.Log(t.gameObject.name);
+		//Debug.Log(t.gameObject.name);
 		coroutineRunning = false;
 
 	}
@@ -108,5 +109,12 @@ public class MovementHandler : MonoBehaviour {
 			return distance;
 		}
 		return 0f;
+	}
+
+	public IEnumerator EndGame(Transform t){
+		GameObject g = GameObject.Instantiate(alert) as GameObject;
+		g.transform.position = t.position;
+		yield return new WaitForSeconds (0.25f);
+		Application.LoadLevel("GameOver");
 	}
 }

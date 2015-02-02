@@ -86,7 +86,8 @@ public class EnemyHandler : MonoBehaviour {
 		if(hit.collider != null){
 			if(hit.collider.gameObject.tag == "Player"){
 				Debug.Log("spotted!");
-				RelocateGoalPos();
+				StartCoroutine(MovementHandler.instance.EndGame(transform));
+				//RelocateGoalPos();
 			}
 		}
 	}
