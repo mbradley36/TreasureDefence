@@ -3,11 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class HeroHandler : MonoBehaviour {
+
+	public static HeroHandler instance {get; private set;}
 	StoppableCoroutine move;
 	StoppableCoroutine move2;
 	int timesMoved = 0;
 	List<float> distances = new List<float>();
 	bool canMove = true;
+	public bool dirInterrupt = false;
+
+	void Awake(){
+		instance = this;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +41,14 @@ public class HeroHandler : MonoBehaviour {
 	public bool CheckDir(Vector2 v){
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
 		if(hit.collider != null){
+			Debug.Log(hit.collider.gameObject.name);
 			float distance = Vector2.Distance(hit.point, this.transform.position);
 			//Debug.Log(distance + " dist " + hit.collider.gameObject.name);
+			if(hit.collider.gameObject.name == "otherChest" || hit.collider.gameObject.tag =="Player"){
+				distances.Add(99999);
+				Debug.Log("chest seen!");
+				return true;
+			}
 			if(hit.distance > 2f) {
 				distances.Add(distance);
 				return true;
@@ -53,7 +66,15 @@ public class HeroHandler : MonoBehaviour {
 	}
 	
 	public void RecheckDist(Vector2 v, dir d){
-		//Debug.Log("to check: " + v);
+		/*if(dirInterrupt) {
+			dirInterrupt = false;
+			move = new StoppableCoroutine(moveSwitch(d));
+			StartCoroutine(move);
+			Debug.Log("MOVEMENT INTERRUPTED, FORCING DIR CHANGE");
+			return;
+		}*/
+
+		Debug.Log("check");
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, this.transform.position);
@@ -93,6 +114,13 @@ public class HeroHandler : MonoBehaviour {
 	}
 	
 	IEnumerator movePattern(dir d){
+		if(!CheckAllDirForChest()) {
+			yield return new WaitForSeconds(1f);
+			MoveHero(d);
+		} else yield return 0;
+	}
+
+	IEnumerator moveToChest(dir d){
 		yield return new WaitForSeconds(1f);
 		MoveHero(d);
 	}
@@ -108,9 +136,15 @@ public class HeroHandler : MonoBehaviour {
 		if(v.x == 0) {
 			if(CheckDir(new Vector2(1, 0))) movable.Add (dir.left);
 			if(CheckDir(new Vector2(-1, 0))) movable.Add (dir.right);
+
+			if(CheckForChest(new Vector2(0, 1))) movable.Add(dir.up);
+			if(CheckForChest(new Vector2(0, -1))) movable.Add(dir.down);
 		} else if (v.y == 0){
 			if(CheckDir(new Vector2(0, 1))) movable.Add (dir.up);
 			if(CheckDir(new Vector2(0, -1))) movable.Add (dir.down);
+
+			if(CheckForChest(new Vector2(1, 0))) movable.Add (dir.left);
+			if(CheckForChest(new Vector2(-1, 0))) movable.Add (dir.right);
 		}
 		
 		if(movable.Count > 0) switchedPath = true;
@@ -125,8 +159,35 @@ public class HeroHandler : MonoBehaviour {
 			MoveHero(newd);
 		}
 	}
+
+	bool CheckAllDirForChest(){
+		bool foundChest = false;
+		dir d = dir.up;
+		Debug.Log("checking all dirs for chest");
+		if(CheckForChest(new Vector2(1, 0))) d=dir.left;
+		if(CheckForChest(new Vector2(-1, 0))) d=dir.right;
+		if(CheckForChest(new Vector2(0, 1))) d=dir.up;
+		if(CheckForChest(new Vector2(0,-1))) d=dir.down;
+		if(foundChest) StartCoroutine(moveToChest(d));
+		return foundChest;
+	}
+
+	bool CheckForChest(Vector2 v){
+		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
+		if(hit.collider != null){
+			float distance = Vector2.Distance(hit.point, this.transform.position);
+			//Debug.Log(distance + " dist " + hit.collider.gameObject.name);
+			Debug.Log(hit.collider.gameObject.name);
+			if(hit.collider.gameObject.name == "otherChest" || hit.collider.gameObject.tag =="Player"){
+				distances.Add(99999);
+				Debug.Log("chest seen, movin!");
+				return true;
+			}
+		}
+		return false;
+	}
 	
-	void OnCollisionEnter2D(Collision c){
+	void OnCollisionEnter2D(Collision2D c){
 		//Debug.Log("stopped movement");
 		StopCoroutine(move2);
 	}

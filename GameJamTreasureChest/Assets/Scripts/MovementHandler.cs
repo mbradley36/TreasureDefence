@@ -10,7 +10,9 @@ public class MovementHandler : MonoBehaviour {
 	public bool coroutineRunning = false;
 	public bool chestMoving = false;
 	public Dictionary<dir, Vector2> dirVector = new Dictionary<dir, Vector2>();
-	float minDist = 0.4f;
+	float minDist = 0.3f;
+	public float moveAmt = 0.25f; 
+	public float moveIncrement = 0.25f;
 		
 	void Awake() {
 		instance = this;
@@ -32,45 +34,66 @@ public class MovementHandler : MonoBehaviour {
 	
 	public IEnumerator MoveDir(dir direction, Transform t) {
 		coroutineRunning = true;
+		//Debug.Log("call move for " + t.gameObject.name);
 		switch(direction){
 			case dir.left:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos = t.position.x - 0.5f;
+				float movedPos = t.position.x - moveAmt;
 				while(t.position.x > movedPos){
 					if(CheckDir(t, dirVector[dir.left]) > minDist) {
-						t.position = new Vector2(t.position.x - 0.15f, t.position.y);
+						t.position = new Vector2(t.position.x - moveIncrement, t.position.y);
 						yield return new WaitForSeconds(0.1f);
-					} else break;
+					} else {
+						/*if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = true;
+						}*/
+						break;
+					}
 				}
 				break;
 			case dir.right:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos2 = t.position.x + 0.5f;
+				float movedPos2 = t.position.x + moveAmt;
 				while(t.position.x < movedPos2){
 					if(CheckDir(t, dirVector[dir.right]) > minDist) {
-						t.position = new Vector2(t.position.x + 0.15f, t.position.y);
+						t.position = new Vector2(t.position.x + moveIncrement, t.position.y);
 						yield return new WaitForSeconds(0.1f);
-					} else break;
+					} else {
+						/*if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = true;
+						}*/
+						break;
+					}
 				}
 				break;
 			case dir.up:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos3 = t.position.y + 0.5f;
+				float movedPos3 = t.position.y + moveAmt;
 				while(t.position.y < movedPos3){
 					if(CheckDir(t, dirVector[dir.up]) > minDist) {
-						t.position = new Vector2(t.position.x, t.position.y + 0.15f);
+						t.position = new Vector2(t.position.x, t.position.y + moveIncrement);
 						yield return new WaitForSeconds(0.1f);
-					} else break;
+					} else {
+						/*if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = true;
+						}*/
+						break;
+					}
 				}
 				break;
 			case dir.down:
 				yield return new WaitForSeconds(0.25f);
-				float movedPos4 = t.position.y - 0.5f;
+				float movedPos4 = t.position.y - moveAmt;
 				while(t.position.y > movedPos4){
 					if(CheckDir(t, dirVector[dir.left]) > minDist) {
-						t.position = new Vector2(t.position.x, t.position.y - 0.15f);
+						t.position = new Vector2(t.position.x, t.position.y - moveIncrement);
 						yield return new WaitForSeconds(0.1f);
-					} else break;
+					} else {
+						/*if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = true;
+						}*/
+						break;
+					}
 				}
 				break;
 		}
@@ -81,7 +104,7 @@ public class MovementHandler : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(t.position, v);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, t.position);
-			Debug.Log(distance);
+			//Debug.Log(distance + " for " + t.gameObject.name + " moving " +v);
 			return distance;
 		}
 		return 0f;
