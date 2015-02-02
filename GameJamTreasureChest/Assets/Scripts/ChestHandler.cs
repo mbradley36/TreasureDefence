@@ -55,9 +55,9 @@ public class ChestHandler : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D c){
-		Debug.Log("collided with " + c.gameObject.name);
+		//Debug.Log("collided with " + c.gameObject.name);
 		if (c.gameObject.tag == "Enemy" && MovementHandler.instance.chestMoving){
-			Debug.Log("hit an enemy!");
+			//Debug.Log("hit an enemy!");
 			StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(c.gameObject.transform));
 			StartCoroutine(s);
 		} else if(!MovementHandler.instance.chestMoving && c.gameObject.GetComponent<EnemyHandler>()){

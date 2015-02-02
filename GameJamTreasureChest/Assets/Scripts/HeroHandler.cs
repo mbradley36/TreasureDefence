@@ -39,6 +39,10 @@ public class HeroHandler : MonoBehaviour {
 			StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.MoveDir(currentDir, transform));
 			StartCoroutine(s);
 		}
+
+		if(MovementHandler.instance.chestMoving) {
+			CheckForPlayerMovement();
+		}
 	}
 
 	void PickRandomDir(){
@@ -73,22 +77,28 @@ public class HeroHandler : MonoBehaviour {
 			Debug.Log("saw " + hit.collider.gameObject.name);
 			if(Mathf.Abs(transform.parent.position.x - player.transform.position.x)<1.0f){
 				if(currentDir == dir.down){
-					if(player.transform.position.y > hit.collider.gameObject.transform.position.y){
+					if(player.transform.position.y > hit.collider.gameObject.transform.position.y &&
+						player.transform.position.y < transform.position.y){
 						Debug.Log("spotted by hero!");
 					}
 				} else {
-					if(player.transform.position.y < hit.collider.gameObject.transform.position.y){
+					if(player.transform.position.y < hit.collider.gameObject.transform.position.y &&
+						player.transform.position.y > transform.position.y){
 						Debug.Log("spotted by hero!");
 					}
 				}
 			} else if(Mathf.Abs(transform.parent.position.y - player.transform.position.y)<1.0f){
 				Debug.Log("check x");
 				if(currentDir == dir.right){
-					if(player.transform.position.x < hit.collider.gameObject.transform.position.x){
+					Debug.Log("moving right");
+					if(player.transform.position.x < hit.collider.gameObject.transform.position.x &&
+						player.transform.position.x > transform.position.x){
 						Debug.Log("spotted by hero!");
 					}
 				} else {
-					if(player.transform.position.x > hit.collider.gameObject.transform.position.x){
+					Debug.Log("moving left");
+					if(player.transform.position.x > hit.collider.gameObject.transform.position.x &&
+						player.transform.position.x < transform.position.x){
 						Debug.Log("spotted by hero!");
 					}
 				}
