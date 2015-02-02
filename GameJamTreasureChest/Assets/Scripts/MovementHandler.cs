@@ -44,9 +44,9 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x - moveIncrement, t.position.y);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						/*if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = true;
-						}*/
+						if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = false;
+						}
 						break;
 					}
 				}
@@ -59,9 +59,9 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x + moveIncrement, t.position.y);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						/*if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = true;
-						}*/
+						if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = false;
+						}
 						break;
 					}
 				}
@@ -74,9 +74,9 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x, t.position.y + moveIncrement);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						/*if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = true;
-						}*/
+						if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = false;
+						}
 						break;
 					}
 				}
@@ -89,9 +89,9 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x, t.position.y - moveIncrement);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						/*if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = true;
-						}*/
+						if(t.gameObject.name == "Hero"){
+							HeroHandler.instance.dirInterrupt = false;
+						}
 						break;
 					}
 				}

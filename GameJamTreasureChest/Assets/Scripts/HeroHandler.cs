@@ -46,6 +46,8 @@ public class HeroHandler : MonoBehaviour {
 			//Debug.Log(distance + " dist " + hit.collider.gameObject.name);
 			if(hit.collider.gameObject.name == "otherChest" || hit.collider.gameObject.tag =="Player"){
 				distances.Add(99999);
+				dirInterrupt = true;
+				StopCoroutine(move2);
 				Debug.Log("chest seen!");
 				return true;
 			}
@@ -60,19 +62,17 @@ public class HeroHandler : MonoBehaviour {
 	
 	public void MoveHero(dir d){
 		//StopCoroutine(move2);
+		Debug.Log("trying to move");
 		move2 = new StoppableCoroutine(MovementHandler.instance.MoveDir(d, this.transform));
 		StartCoroutine(move2);
 		RecheckDist(MovementHandler.instance.dirVector[d], d);
 	}
 	
 	public void RecheckDist(Vector2 v, dir d){
-		/*if(dirInterrupt) {
-			dirInterrupt = false;
-			move = new StoppableCoroutine(moveSwitch(d));
-			StartCoroutine(move);
-			Debug.Log("MOVEMENT INTERRUPTED, FORCING DIR CHANGE");
+		if(dirInterrupt) {
+			//dirInterrupt = false;
 			return;
-		}*/
+		}
 
 		Debug.Log("check");
 		RaycastHit2D hit = Physics2D.Raycast(this.transform.position, v);
@@ -194,6 +194,8 @@ public class HeroHandler : MonoBehaviour {
 			Debug.Log(hit.collider.gameObject.name);
 			if(hit.collider.gameObject.name == "otherChest" || hit.collider.gameObject.tag =="Player"){
 				distances.Add(99999);
+				StopCoroutine(move2);
+				dirInterrupt = true;
 				Debug.Log("chest seen, movin!");
 				return true;
 			}
