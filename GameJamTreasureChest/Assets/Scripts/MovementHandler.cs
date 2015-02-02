@@ -105,7 +105,7 @@ public class MovementHandler : MonoBehaviour {
 		Debug.DrawRay(t.position, v, Color.red);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, t.position);
-			if(t.gameObject.name == "tresureChest_0")Debug.LogWarning(distance + " for " + t.gameObject.name + " moving " +v + " hitting " + hit.collider.gameObject.name);
+			//if(t.gameObject.name == "tresureChest_0")Debug.LogWarning(distance + " for " + t.gameObject.name + " moving " +v + " hitting " + hit.collider.gameObject.name);
 			return distance;
 		}
 		return 0f;

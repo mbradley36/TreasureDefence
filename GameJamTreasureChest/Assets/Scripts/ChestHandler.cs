@@ -62,9 +62,6 @@ public class ChestHandler : MonoBehaviour {
 			eH.s.Stop();
 		}else if(c.gameObject.tag == "Capturable"){
 			StartCoroutine(Capture(c.gameObject));
-		} else {
-			Debug.LogWarning("stopped movement " + c.gameObject.name);
-			//StopCoroutine(s);
 		}
 	}
 	
