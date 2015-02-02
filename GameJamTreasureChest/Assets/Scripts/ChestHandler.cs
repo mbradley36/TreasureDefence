@@ -54,7 +54,7 @@ public class ChestHandler : MonoBehaviour {
 		
 	}
 	
-	void OnCollisionEnter2D(Collision2D c){
+	void OnTriggerEnter2D(Collider2D c){
 		Debug.Log("collided with " + c.gameObject.name);
 		if(!MovementHandler.instance.chestMoving && c.gameObject.GetComponent<EnemyHandler>()){
 			EnemyHandler eH = c.gameObject.GetComponent<EnemyHandler>();

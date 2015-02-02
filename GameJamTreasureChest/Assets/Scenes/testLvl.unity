@@ -362,7 +362,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 251678959}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 3, y: 3}
   m_Center: {x: 0, y: 0}
 --- !u!50 &251678965
@@ -585,6 +585,10 @@ Prefab:
       propertyPath: m_Size.x
       value: 3.66000009
       objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
@@ -648,6 +652,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5000000, guid: ac818ad86d1eaf74fa50a56ed698905e, type: 2}
       propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100004, guid: ac818ad86d1eaf74fa50a56ed698905e, type: 2}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1377,6 +1385,10 @@ Prefab:
     - target: {fileID: 100000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
@@ -3333,7 +3345,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2126267979}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 3.66000009, y: 2.73000002}
   m_Center: {x: 0, y: -1.17999995}
 --- !u!212 &2126267982
@@ -3400,7 +3412,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2143042909}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .300000012, y: .300000012}
   m_Center: {x: 0, y: 0}
 --- !u!114 &2143042911

@@ -108,7 +108,7 @@ public class MovementHandler : MonoBehaviour {
 			if(t.gameObject.name == "Hero" && hit.collider.gameObject.name == "otherChest") {
 				HeroHandler.instance.dirInterrupt = false;
 				//HeroHandler.instance.restartMovement();
-				GameObject.Destroy(hit.collider.gameObject);
+				if(distance < minDist+0.2f) GameObject.Destroy(hit.collider.gameObject);
 			}
 			return distance;
 		}

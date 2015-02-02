@@ -95,6 +95,7 @@ public class HeroHandler : MonoBehaviour {
 	}
 	
 	public dir DecideDirection(List<dir> d){
+		if(d.Count == 0 || distances.Count == 0) return dir.left;
 		float largest = distances[0];
 		int index = 0;
 		for(int i = 0; i < distances.Count; i++){
