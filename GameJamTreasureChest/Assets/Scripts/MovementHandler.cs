@@ -44,9 +44,6 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x - moveIncrement, t.position.y);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = false;
-						}
 						break;
 					}
 				}
@@ -59,9 +56,6 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x + moveIncrement, t.position.y);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = false;
-						}
 						break;
 					}
 				}
@@ -74,9 +68,6 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x, t.position.y + moveIncrement);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = false;
-						}
 						break;
 					}
 				}
@@ -89,15 +80,19 @@ public class MovementHandler : MonoBehaviour {
 						t.position = new Vector2(t.position.x, t.position.y - moveIncrement);
 						yield return new WaitForSeconds(0.1f);
 					} else {
-						if(t.gameObject.name == "Hero"){
-							HeroHandler.instance.dirInterrupt = false;
-						}
 						break;
 					}
 				}
 				break;
 		}
+		
+		if(t.gameObject.name == "Hero") {
+			Debug.Log("finished");
+			HeroHandler.instance.needToMove = true;
+		}
+		Debug.Log(t.gameObject.name);
 		coroutineRunning = false;
+
 	}
 	
 	public float CheckDir(Transform t, Vector2 v){
