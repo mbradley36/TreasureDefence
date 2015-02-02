@@ -39,7 +39,7 @@ public class EnemyHandler : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D c){
-		Debug.Log("entered collision");
+		//Debug.Log("entered collision");
 		if(c.gameObject == pos2.gameObject){
 			s.Stop();
 			flipped = true;

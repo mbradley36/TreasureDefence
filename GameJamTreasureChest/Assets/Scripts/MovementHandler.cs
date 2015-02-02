@@ -10,7 +10,7 @@ public class MovementHandler : MonoBehaviour {
 	public bool coroutineRunning = false;
 	public bool chestMoving = false;
 	public Dictionary<dir, Vector2> dirVector = new Dictionary<dir, Vector2>();
-	float minDist = 0.3f;
+	float minDist;
 	public float moveAmt = 0.25f; 
 	public float moveIncrement = 0.25f;
 		
@@ -24,7 +24,7 @@ public class MovementHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		minDist = moveAmt;
 	}
 	
 	// Update is called once per frame
@@ -85,7 +85,7 @@ public class MovementHandler : MonoBehaviour {
 				yield return new WaitForSeconds(0.25f);
 				float movedPos4 = t.position.y - moveAmt;
 				while(t.position.y > movedPos4){
-					if(CheckDir(t, dirVector[dir.left]) > minDist) {
+					if(CheckDir(t, dirVector[dir.down]) > minDist) {
 						t.position = new Vector2(t.position.x, t.position.y - moveIncrement);
 						yield return new WaitForSeconds(0.1f);
 					} else {

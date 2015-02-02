@@ -134,12 +134,14 @@ public class HeroHandler : MonoBehaviour {
 		List<dir> movable = new List<dir>();
 		
 		if(v.x == 0) {
+			Debug.Log("move switch x");
 			if(CheckDir(new Vector2(1, 0))) movable.Add (dir.left);
 			if(CheckDir(new Vector2(-1, 0))) movable.Add (dir.right);
 
 			if(CheckForChest(new Vector2(0, 1))) movable.Add(dir.up);
 			if(CheckForChest(new Vector2(0, -1))) movable.Add(dir.down);
 		} else if (v.y == 0){
+			Debug.Log("move switch y");
 			if(CheckDir(new Vector2(0, 1))) movable.Add (dir.up);
 			if(CheckDir(new Vector2(0, -1))) movable.Add (dir.down);
 
@@ -164,10 +166,22 @@ public class HeroHandler : MonoBehaviour {
 		bool foundChest = false;
 		dir d = dir.up;
 		Debug.Log("checking all dirs for chest");
-		if(CheckForChest(new Vector2(1, 0))) d=dir.left;
-		if(CheckForChest(new Vector2(-1, 0))) d=dir.right;
-		if(CheckForChest(new Vector2(0, 1))) d=dir.up;
-		if(CheckForChest(new Vector2(0,-1))) d=dir.down;
+		if(CheckForChest(new Vector2(1, 0))) {
+			foundChest = true;			
+			d=dir.left;
+		}
+		if(CheckForChest(new Vector2(-1, 0))) {
+			foundChest = true;
+			d=dir.right;
+		}
+		if(CheckForChest(new Vector2(0, 1))) {
+			foundChest = true;
+			d=dir.up;
+		}
+		if(CheckForChest(new Vector2(0,-1))) {
+			foundChest = true;
+			d=dir.down;
+		}
 		if(foundChest) StartCoroutine(moveToChest(d));
 		return foundChest;
 	}
@@ -188,7 +202,10 @@ public class HeroHandler : MonoBehaviour {
 	}
 	
 	void OnCollisionEnter2D(Collision2D c){
-		//Debug.Log("stopped movement");
+		Debug.Log("stopped movement " + c.gameObject.name);
 		StopCoroutine(move2);
+		StopCoroutine(move);
+		move = new StoppableCoroutine(movePattern());
+		StartCoroutine(move);
 	}
 }
