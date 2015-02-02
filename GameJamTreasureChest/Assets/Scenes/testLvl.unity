@@ -113,7 +113,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &44227861
 SpriteRenderer:
@@ -245,6 +245,22 @@ Prefab:
     - target: {fileID: 400000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
       propertyPath: m_LocalScale.z
       value: .149158001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Size.x
+      value: 3.66000009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Size.y
+      value: 2.73000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Center.y
+      value: -.99000001
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
@@ -404,7 +420,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &305609667
 SpriteRenderer:
@@ -561,7 +577,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .149158001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Size.y
+      value: 2.73000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Size.x
+      value: 3.66000009
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
   m_RootGameObject: {fileID: 2126267979}
   m_IsPrefabParent: 0
@@ -684,6 +709,14 @@ Prefab:
     - target: {fileID: 100002, guid: d2327e1652bd4d444b25c900513397b7, type: 2}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100008, guid: d2327e1652bd4d444b25c900513397b7, type: 2}
+      propertyPath: m_Size.x
+      value: .439999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100008, guid: d2327e1652bd4d444b25c900513397b7, type: 2}
+      propertyPath: m_Size.y
+      value: .449999988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2327e1652bd4d444b25c900513397b7, type: 2}
@@ -833,7 +866,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!1 &704867924
 GameObject:
@@ -874,7 +907,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &704867927
 SpriteRenderer:
@@ -993,7 +1026,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &847556176
 SpriteRenderer:
@@ -1125,7 +1158,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1018229981
 SpriteRenderer:
@@ -1189,7 +1222,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1026011447
 SpriteRenderer:
@@ -1253,7 +1286,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1091884189
 SpriteRenderer:
@@ -1389,7 +1422,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1242730035
 SpriteRenderer:
@@ -1453,7 +1486,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1315422157
 SpriteRenderer:
@@ -1629,7 +1662,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1420409478}
   - 212: {fileID: 1420409477}
-  - 50: {fileID: 1420409480}
   - 61: {fileID: 1420409479}
   m_Layer: 0
   m_Name: otherChest
@@ -1683,24 +1715,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 4.21000004, y: 3}
+  m_Size: {x: 3.66000009, y: 2.73000002}
   m_Center: {x: 0, y: -1.17999995}
---- !u!50 &1420409480
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1815244059}
-  m_GameObject: {fileID: 1420409476}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!1 &1442745871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,9 +1743,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 1442745871}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 4.21000004, y: 3}
-  m_Center: {x: 0, y: -1.17999995}
+  m_IsTrigger: 1
+  m_Size: {x: 3.66000009, y: 2.73000002}
+  m_Center: {x: 0, y: -.99000001}
 --- !u!212 &1442745874
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1885,7 +1901,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1508442959
 SpriteRenderer:
@@ -1949,7 +1965,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1513730396
 SpriteRenderer:
@@ -2013,7 +2029,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1529757973
 SpriteRenderer:
@@ -2221,7 +2237,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1560698096
 SpriteRenderer:
@@ -2445,7 +2461,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1579269662
 SpriteRenderer:
@@ -2509,7 +2525,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1622913143
 SpriteRenderer:
@@ -2676,7 +2692,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1714120118
 SpriteRenderer:
@@ -2841,7 +2857,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1789965228
 SpriteRenderer:
@@ -2905,7 +2921,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1802953791
 SpriteRenderer:
@@ -2981,7 +2997,20 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .149158001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Size.y
+      value: 2.73000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_FixedAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
+      propertyPath: m_Size.x
+      value: 3.66000009
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c8e3feadfca78c64d8fdb9a29130dcd2, type: 2}
   m_RootGameObject: {fileID: 1420409476}
   m_IsPrefabParent: 0
@@ -3025,7 +3054,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &1874469279
 SpriteRenderer:
@@ -3189,7 +3218,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &2077376211
 SpriteRenderer:
@@ -3253,7 +3282,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: .469999999, y: .479999989}
+  m_Size: {x: .439999998, y: .449999988}
   m_Center: {x: 0, y: 0}
 --- !u!212 &2081938232
 SpriteRenderer:
@@ -3287,7 +3316,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2126267983}
   - 212: {fileID: 2126267982}
-  - 50: {fileID: 2126267981}
   - 61: {fileID: 2126267980}
   m_Layer: 0
   m_Name: otherChest
@@ -3306,24 +3334,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 4.21000004, y: 3}
+  m_Size: {x: 3.66000009, y: 2.73000002}
   m_Center: {x: 0, y: -1.17999995}
---- !u!50 &2126267981
-Rigidbody2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5000000, guid: c8e3feadfca78c64d8fdb9a29130dcd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 485381151}
-  m_GameObject: {fileID: 2126267979}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!212 &2126267982
 SpriteRenderer:
   m_ObjectHideFlags: 0
