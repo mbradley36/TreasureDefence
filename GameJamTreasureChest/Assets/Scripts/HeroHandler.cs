@@ -29,7 +29,11 @@ public class HeroHandler : MonoBehaviour {
 	void Update () {
 		//Debug.Log(needToMove);
 		if(needToMove) {
-			PickRandomDir();
+			timesMoved ++;
+			if(timesMoved > 4 || AboutToCollide()) {
+				timesMoved = 0;
+				PickRandomDir();
+			}
 			needToMove = false;
 			StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.MoveDir(currentDir, transform));
 			StartCoroutine(s);
@@ -43,9 +47,22 @@ public class HeroHandler : MonoBehaviour {
 		Debug.DrawRay(transform.position, v, Color.red);
 		if(hit.collider != null){
 			float distance = Vector2.Distance(hit.point, transform.position);
-			if(distance < 0.25f) {
+			if(distance < 0.30f) {
 				PickRandomDir();
 			}
 		}
+	}
+
+	bool AboutToCollide(){
+		Vector2 v = MovementHandler.instance.dirVector[currentDir];
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, v);
+		Debug.DrawRay(transform.position, v, Color.red);
+		if(hit.collider != null){
+			float distance = Vector2.Distance(hit.point, transform.position);
+			if(distance < 0.30f) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
