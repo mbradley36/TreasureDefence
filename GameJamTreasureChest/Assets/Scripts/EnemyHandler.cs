@@ -11,6 +11,8 @@ public class EnemyHandler : MonoBehaviour {
 	private bool flipped = false;
 	public StoppableCoroutine s;
 	public bool still = false;
+	public GameObject player;
+	private bool facingRight = false;
 
 	// Use this for initialization
 	void Start () {
@@ -84,10 +86,22 @@ public class EnemyHandler : MonoBehaviour {
 	void CheckForPlayerMovement(){
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(pos2.position.x - pos1.position.x, pos2.position.y - pos1.position.y));
 		if(hit.collider != null){
-			if(hit.collider.gameObject.tag == "Player"){
-				Debug.Log("spotted!");
-				StartCoroutine(MovementHandler.instance.EndGame(transform));
-				//RelocateGoalPos();
+			Debug.Log("saw " + hit.collider.gameObject.name);
+			if(Mathf.Abs(transform.parent.position.x - player.transform.position.x)<1.0f){
+				if(player.transform.position.y < hit.collider.gameObject.transform.position.y){
+					Debug.Log("spotted!");
+				}
+			} else if(Mathf.Abs(transform.parent.position.y - player.transform.position.y)<1.0f){
+				Debug.Log("check x");
+				if(flipped){
+					if(player.transform.position.x < hit.collider.gameObject.transform.position.x){
+						Debug.Log("spotted!");
+					}
+				} else {
+					if(player.transform.position.x > hit.collider.gameObject.transform.position.x){
+						Debug.Log("spotted!");
+					}
+				}
 			}
 		}
 	}
