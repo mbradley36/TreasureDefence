@@ -318,7 +318,7 @@ Transform:
   m_PrefabInternal: {fileID: 1133698148}
   m_GameObject: {fileID: 251678959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.85290003, y: -.33208999, z: 0}
+  m_LocalPosition: {x: 2.09559989, y: -.262760013, z: 0}
   m_LocalScale: {x: .17353265, y: .17353268, z: .17353268}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1002,6 +1002,7 @@ Transform:
   - {fileID: 1874469277}
   - {fileID: 1560698094}
   - {fileID: 1588150258}
+  - {fileID: 1340133880}
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!1 &847556173
@@ -1337,11 +1338,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.85290003
+      value: 2.09559989
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.33208999
+      value: -.262760013
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1532,6 +1533,45 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e1f0549f61d52ac4ca994e195132a407, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1340133879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1340133880}
+  - 61: {fileID: 1340133881}
+  m_Layer: 2
+  m_Name: Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340133880
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340133879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.453440011, y: -2.83279991, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 705731878}
+  m_RootOrder: 29
+--- !u!61 &1340133881
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340133879}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 1, y: 1}
+  m_Center: {x: 0, y: 0}
 --- !u!1 &1353936586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2518,7 +2558,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1588150258}
   - 61: {fileID: 1588150259}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2532,7 +2572,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1588150257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.453435063, y: 3.51249647, z: 0}
+  m_LocalPosition: {x: -.453440011, y: 3.02710009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 705731878}

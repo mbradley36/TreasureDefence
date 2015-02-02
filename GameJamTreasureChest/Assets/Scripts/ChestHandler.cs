@@ -69,7 +69,11 @@ public class ChestHandler : MonoBehaviour {
 			int incrementedInt =  PlayerPrefs.GetInt("chestsSaved");
 			incrementedInt++;
 			PlayerPrefs.SetInt("chestsSaved",incrementedInt);
-		} else if(c.gameObject.name == "Door") {
+		}
+	}
+
+	void OnTriggerStay2D(Collider2D c){
+		if(c.gameObject.name == "Door" && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))) {
 			Application.LoadLevel("GameOver");
 		}
 	}

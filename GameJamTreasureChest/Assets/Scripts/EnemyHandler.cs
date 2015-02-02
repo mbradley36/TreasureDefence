@@ -12,7 +12,7 @@ public class EnemyHandler : MonoBehaviour {
 	public StoppableCoroutine s;
 	public bool still = false;
 	public GameObject player;
-	private bool facingRight = false;
+	private dir direction;
 
 	// Use this for initialization
 	void Start () {
@@ -54,7 +54,7 @@ public class EnemyHandler : MonoBehaviour {
 	IEnumerator EnemyMovement(){
 		moving = true;
 		int steps = 0;
-		dir direction = dir.up;
+		direction = dir.up;
 		while(steps < stepsTaken) {
 			animator.SetBool("isWalking", true);
 			if(pos1.position.x - pos2.position.x > 0) {
@@ -84,22 +84,22 @@ public class EnemyHandler : MonoBehaviour {
 	}
 	
 	void CheckForPlayerMovement(){
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(pos2.position.x - pos1.position.x, pos2.position.y - pos1.position.y));
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, MovementHandler.instance.dirVector[direction]);
 		if(hit.collider != null){
 			//Debug.Log("saw " + hit.collider.gameObject.name);
 			if(Mathf.Abs(transform.parent.position.x - player.transform.position.x)<1.0f){
 				if(player.transform.position.y < hit.collider.gameObject.transform.position.y){
-					Debug.Log("spotted!");
+					Debug.Log("spotted by enemy!");
 				}
 			} else if(Mathf.Abs(transform.parent.position.y - player.transform.position.y)<1.0f){
 				Debug.Log("check x");
-				if(flipped){
+				if(direction == dir.right){
 					if(player.transform.position.x > hit.collider.gameObject.transform.position.x){
-						Debug.Log("spotted!");
+						Debug.Log("spotted by enemy!");
 					}
 				} else {
 					if(player.transform.position.x < hit.collider.gameObject.transform.position.x){
-						Debug.Log("spotted!");
+						Debug.Log("spotted by enemy!");
 					}
 				}
 			}

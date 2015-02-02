@@ -113,6 +113,7 @@ public class MovementHandler : MonoBehaviour {
 
 	public IEnumerator EndGame(Transform t){
 		Debug.Log("ending game");
+		PlayerPrefs.SetInt("chestsSaved", 0);
 		GameObject g = GameObject.Instantiate(alert) as GameObject;
 		g.transform.position = t.position;
 		yield return new WaitForSeconds (0.5f);
