@@ -112,9 +112,10 @@ public class MovementHandler : MonoBehaviour {
 	}
 
 	public IEnumerator EndGame(Transform t){
+		Debug.Log("ending game");
 		GameObject g = GameObject.Instantiate(alert) as GameObject;
 		g.transform.position = t.position;
-		yield return new WaitForSeconds (0.25f);
+		yield return new WaitForSeconds (0.5f);
 		Application.LoadLevel("GameOver");
 	}
 }

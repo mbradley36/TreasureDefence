@@ -318,7 +318,7 @@ Transform:
   m_PrefabInternal: {fileID: 1133698148}
   m_GameObject: {fileID: 251678959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0504299998, y: -2.45860004, z: 0}
+  m_LocalPosition: {x: 1.85290003, y: -.33208999, z: 0}
   m_LocalScale: {x: .17353265, y: .17353268, z: .17353268}
   m_Children: []
   m_Father: {fileID: 0}
@@ -662,6 +662,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 251678959}
+    - target: {fileID: 100006, guid: ac818ad86d1eaf74fa50a56ed698905e, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac818ad86d1eaf74fa50a56ed698905e, type: 2}
   m_RootGameObject: {fileID: 1693435387}
@@ -1333,11 +1337,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .0504299998
+      value: 1.85290003
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.45860004
+      value: -.33208999
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4f45d17269be724facd1157321b11bf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2294,7 +2298,7 @@ GameObject:
   - 114: {fileID: 1564894110}
   m_Layer: 2
   m_Name: Hero
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2324,6 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dirInterrupt: 0
+  player: {fileID: 251678959}
   needToMove: 1
 --- !u!50 &1564894111
 Rigidbody2D:
@@ -3444,7 +3449,7 @@ GameObject:
   - 50: {fileID: 2143042915}
   m_Layer: 2
   m_Name: MoblinSideSS_0
-  m_TagString: Capturable
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

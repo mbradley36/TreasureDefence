@@ -10,7 +10,7 @@ public class ChestHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		PlayerPrefs.SetInt("chestsSaved", 0);
 	}
 	
 	void FixedUpdate(){
@@ -56,12 +56,19 @@ public class ChestHandler : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D c){
 		Debug.Log("collided with " + c.gameObject.name);
-		if(!MovementHandler.instance.chestMoving && c.gameObject.GetComponent<EnemyHandler>()){
+		if (c.gameObject.tag == "Enemy" && MovementHandler.instance.chestMoving){
+			Debug.Log("hit an enemy!");
+			StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(c.gameObject.transform));
+			StartCoroutine(s);
+		} else if(!MovementHandler.instance.chestMoving && c.gameObject.GetComponent<EnemyHandler>()){
 			EnemyHandler eH = c.gameObject.GetComponent<EnemyHandler>();
 			eH.ShiftPositionMarkers(transform);
 			eH.s.Stop();
 		}else if(c.gameObject.tag == "Capturable"){
 			StartCoroutine(Capture(c.gameObject));
+			int incrementedInt =  PlayerPrefs.GetInt("chestsSaved");
+			incrementedInt++;
+			PlayerPrefs.SetInt("chestsSaved",incrementedInt);
 		} else if(c.gameObject.name == "Door") {
 			Application.LoadLevel("GameOver");
 		}
