@@ -73,7 +73,9 @@ public class ChestHandler : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D c){
-		if(c.gameObject.name == "Door" && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))) {
+		if(c.gameObject.name == "Door1" && Input.GetKeyDown(KeyCode.DownArrow)) {
+			Application.LoadLevel("GameOver");
+		} else if(c.gameObject.name == "Door1" && Input.GetKeyDown(KeyCode.UpArrow)) {
 			Application.LoadLevel("GameOver");
 		}
 	}

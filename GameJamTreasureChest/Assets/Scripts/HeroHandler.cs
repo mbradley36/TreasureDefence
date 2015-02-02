@@ -80,11 +80,15 @@ public class HeroHandler : MonoBehaviour {
 					if(player.transform.position.y > hit.collider.gameObject.transform.position.y &&
 						player.transform.position.y < transform.position.y){
 						Debug.Log("spotted by hero!");
+						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
+						StartCoroutine(s);
 					}
 				} else {
 					if(player.transform.position.y < hit.collider.gameObject.transform.position.y &&
 						player.transform.position.y > transform.position.y){
 						Debug.Log("spotted by hero!");
+						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
+						StartCoroutine(s);
 					}
 				}
 			} else if(Mathf.Abs(transform.parent.position.y - player.transform.position.y)<1.0f){
@@ -94,15 +98,21 @@ public class HeroHandler : MonoBehaviour {
 					if(player.transform.position.x < hit.collider.gameObject.transform.position.x &&
 						player.transform.position.x > transform.position.x){
 						Debug.Log("spotted by hero!");
+						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
+						StartCoroutine(s);
 					}
 				} else {
 					Debug.Log("moving left");
 					if(player.transform.position.x > hit.collider.gameObject.transform.position.x &&
 						player.transform.position.x < transform.position.x){
 						Debug.Log("spotted by hero!");
+						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
+						StartCoroutine(s);
+
 					}
 				}
 			}
 		}
 	}
 }
+

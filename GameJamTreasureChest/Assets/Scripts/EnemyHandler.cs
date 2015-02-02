@@ -92,12 +92,16 @@ public class EnemyHandler : MonoBehaviour {
 					//Debug.Log("moving right");
 					if(player.transform.position.x < hit.collider.gameObject.transform.position.x &&
 						player.transform.position.x > transform.position.x){
+						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
+						StartCoroutine(s);
 						//Debug.Log("spotted by enemy!");
 					}
 				} else {
 					//Debug.Log("moving left");
 					if(player.transform.position.x > hit.collider.gameObject.transform.position.x &&
 						player.transform.position.x < transform.position.x){
+						StoppableCoroutine s = new StoppableCoroutine(MovementHandler.instance.EndGame(transform));
+						StartCoroutine(s);
 						//Debug.Log("spotted by enemy!");
 					}
 				}
